@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author    Trellis Dev Team
+ * @copyright Copyright (c) Trellis.co (https://trellis.co/)
+ * @package   CustomerResetPassword
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="massresetpassword">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to send a password reset email to the selected customer(s)?</message>
+                        <title translate="true">Reset Password</title>
+                    </confirm>
+                    <url path="resetpassword/index/massResetPassword"/>
+                    <type>massresetpassword</type>
+                    <label translate="true">Reset Password</label>
+                </settings>
+            </action>
+        </massaction>
+    </listingToolbar>
+</listing>
