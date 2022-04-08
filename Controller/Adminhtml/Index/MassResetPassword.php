@@ -2,15 +2,18 @@
 /**
  * @author    Trellis Dev Team
  * @copyright Copyright (c) Trellis.co (https://trellis.co/)
- * @package   CustomerResetPassword
+ * @package   MassResetPassword
  */
 
-namespace Trellis\CustomerResetPassword\Controller\Adminhtml\Index;
+namespace Trellis\MassResetPassword\Controller\Adminhtml\Index;
 
 use Magento\Customer\Api\AccountManagementInterface;
 use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Customer\Controller\Adminhtml\Index\AbstractMassAction;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Backend\App\Action\Context;
+use Magento\Framework\Controller\ResultInterface;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Ui\Component\MassAction\Filter;
 use Magento\Customer\Model\ResourceModel\Customer\CollectionFactory;
 use Magento\Eav\Model\Entity\Collection\AbstractCollection;
@@ -18,12 +21,12 @@ use Magento\Framework\Exception\LocalizedException;
 
 /**
  * Class MassResetPassword
- * @package Trellis\CustomerResetPassword\Controller\Adminhtml\Index
+ * @package Trellis\MassResetPassword\Controller\Adminhtml\Index
  */
-class MassResetPassword extends \Magento\Customer\Controller\Adminhtml\Index\AbstractMassAction
+class MassResetPassword extends AbstractMassAction
 {
     /**
-     * @var \Magento\Customer\Api\AccountManagementInterface
+     * @var AccountManagementInterface
      */
     protected $customerAccountManagement;
 
@@ -36,6 +39,7 @@ class MassResetPassword extends \Magento\Customer\Controller\Adminhtml\Index\Abs
      * @param Context                     $context
      * @param Filter                      $filter
      * @param CollectionFactory           $collectionFactory
+     * @param AccountManagementInterface  $customerAccountManagement
      * @param CustomerRepositoryInterface $customerRepository
      */
     public function __construct(
@@ -52,8 +56,12 @@ class MassResetPassword extends \Magento\Customer\Controller\Adminhtml\Index\Abs
 
     /**
      * @param AbstractCollection $collection
+     *
+     * @return ResultInterface
+     * @throws LocalizedException
+     * @throws NoSuchEntityException
      */
-    protected function massAction(AbstractCollection $collection)
+    protected function massAction(AbstractCollection $collection): ResultInterface
     {
         $customersResetPassword = 0;
         foreach ($collection->getAllIds() as $customerId) {
@@ -66,7 +74,7 @@ class MassResetPassword extends \Magento\Customer\Controller\Adminhtml\Index\Abs
                     $customer->getWebsiteId()
                 );
 
-                // Mark sucessful reset password email sent.
+                // Mark successful reset password email sent.
                 $customersResetPassword++;
             } catch (LocalizedException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
@@ -82,7 +90,7 @@ class MassResetPassword extends \Magento\Customer\Controller\Adminhtml\Index\Abs
         if ($customersResetPassword) {
             $this->messageManager->addSuccessMessage(
                 __(
-                    'The total %1 customer(s) will receive email with a link to reset password.',
+                    'A total of %1 customer(s) will receive email with a link to reset password.',
                     $customersResetPassword
                 )
             );

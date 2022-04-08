@@ -3,11 +3,11 @@
 /**
  * @author    Trellis Dev Team
  * @copyright Copyright (c) Trellis.co (https://trellis.co/)
- * @package   CustomerResetPassword
+ * @package   MassResetPassword
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Module/etc/module.xsd">
-    <module name="Trellis_CustomerResetPassword" setup_version="1.0.0">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Trellis_MassResetPassword" setup_version="1.0.0">
         <sequence>
         	<module name="Magento_Customer"/>
         </sequence>

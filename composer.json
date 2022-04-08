@@ -1,0 +1,19 @@
+{
+    "name": "trellis/module-mass-reset-password",
+    "description": "Allows an admin to mass reset customer passwords.",
+    "require": {
+        "php": "~7.3.0||~7.4.0",
+        "magento/module-customer": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Trellis\\MassResetPassword\\": ""
+        }
+    }
+}
+

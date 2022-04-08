@@ -3,13 +3,13 @@
 /**
  * @author    Trellis Dev Team
  * @copyright Copyright (c) Trellis.co (https://trellis.co/)
- * @package   CustomerResetPassword
+ * @package   MassResetPassword
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
-  <router id="admin">
-    <route id="resetpassword" frontName="resetpassword">
-      <module name="Trellis_CustomerResetPassword" />
-    </route>
-  </router>
+    <router id="admin">
+        <route id="resetpassword" frontName="resetpassword">
+            <module name="Trellis_MassResetPassword"/>
+        </route>
+    </router>
 </config>
