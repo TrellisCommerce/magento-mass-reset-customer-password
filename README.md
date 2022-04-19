@@ -7,7 +7,7 @@ selected customers.
 Follow the instructions to install this extension using Composer.
 
 ```
-composer config git@github.com:TrellisCommerce/module-mass-reset-customer-password.git
+composer config repositories.trellis/module-mass-reset-customer-password git git@github.com:TrellisCommerce/module-mass-reset-customer-password.git
 composer require trellis/module-mass-reset-customer-password
 bin/magento module:enable --clear-static-content Trellis_MassResetPassword
 bin/magento setup:upgrade
