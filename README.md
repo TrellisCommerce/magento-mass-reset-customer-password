@@ -1,4 +1,4 @@
-# Trellis Mass Reset Password
+# Trellis Mass Reset Customer Password
 
 Adds a new mass action when viewing the customers grid in admin that allows an admin to mass-reset the password of any 
 selected customers.
@@ -8,7 +8,7 @@ Follow the instructions to install this extension using Composer.
 
 ```
 TODO: update composer config command: composer config ...
-composer require trellis/module-mass-reset-password
+composer require trellis/module-mass-reset-customer-password
 bin/magento module:enable --clear-static-content Trellis_MassResetPassword
 bin/magento setup:upgrade
 bin/magento cache:flush
