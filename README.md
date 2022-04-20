@@ -1,3 +1,5 @@
+Brought to you and maintained by [Trellis Commerce](https://trellis.co/) - A full-service eCommerce agency based in Boston, MA
+
 # Trellis Mass Reset Customer Password
 
 Adds a new mass action when viewing the customers grid in admin that allows an admin to mass-reset the password of any 
